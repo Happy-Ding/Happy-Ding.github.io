@@ -8,18 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>C++问答 | Happy Ding&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="9.内存泄漏了怎么办？">
+  <meta name="description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针 1const double *cptr;   // cptr may point to a double that is const">
+<meta name="keywords" content="C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++问答">
 <meta property="og:url" content="http://yoursite.com/2018/07/16/C-问答/index.html">
 <meta property="og:site_name" content="Happy Ding&#39;s Blog">
-<meta property="og:description" content="9.内存泄漏了怎么办？">
+<meta property="og:description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针 1const double *cptr;   // cptr may point to a double that is const">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/07/16/C-问答/锐明面经_C++.png">
-<meta property="og:updated_time" content="2018-07-16T14:12:10.973Z">
+<meta property="og:updated_time" content="2018-07-17T02:13:15.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++问答">
-<meta name="twitter:description" content="9.内存泄漏了怎么办？">
+<meta name="twitter:description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针 1const double *cptr;   // cptr may point to a double that is const">
 <meta name="twitter:image" content="http://yoursite.com/2018/07/16/C-问答/锐明面经_C++.png">
   
     <link rel="alternative" href="/atom.xml" title="Happy Ding&#39;s Blog" type="application/atom+xml">
@@ -180,7 +181,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>9.<a href="http://www.sohu.com/a/165054117_610509" target="_blank" rel="noopener">内存泄漏了怎么办？</a></p>
+        <p>1.<a href="https://blog.csdn.net/yaosiming2011/article/details/44280797" target="_blank" rel="noopener">进程和线程的关系和区别</a></p>
+<p>2.<a href="http://nevel.cnblogs.com/p/6370264.html" target="_blank" rel="noopener">指针函数和函数指针</a></p>
+<p>3.<a href="https://www.cnblogs.com/QG-whz/p/5140930.html" target="_blank" rel="noopener">new和malloc的区别</a></p>
+<p>4.<a href="https://blog.csdn.net/yanxiaolx/article/details/51944048" target="_blank" rel="noopener">死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法</a></p>
+<p>5.<a href="https://blog.csdn.net/vanbreaker/article/details/7605367" target="_blank" rel="noopener">Linux伙伴系统（一）——伙伴系统的概述</a></p>
+<p>6.<a href="https://www.cnblogs.com/lihuidashen/p/4378884.html" target="_blank" rel="noopener">指向const的指针与const指针</a></p>
+<p><strong>指向const（对象）的指针</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *cptr;   <span class="comment">// cptr may point to a double that is const</span></span><br></pre></td></tr></table></figure>
+<p>cptr本身并不是const。在定义时不需要对它进行初始化，如果需要的话，允许给cptr重新赋值，使其指向另一个const对象。但不能通过cptr修改其所指对象的值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*cptr = <span class="number">42</span>;   <span class="comment">// error: *cptr might be const</span></span><br></pre></td></tr></table></figure>
+<p>在实际的程序中，指向const的指针常用作函数的形参。将形参定义为指向const的指针，以此确保传递给函数的实际对象在函数中不因为形参而被修改。</p>
+<p><strong>const指针</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int errNumb = 0；</span><br><span class="line">int* const curErr = &amp;errNumb; //curErr is a constant pointer</span><br></pre></td></tr></table></figure>
+<p>从右向左把上述定义语句读作“curErr是指向int型对象的const指针”。与其他const量一样，const指针的值不能修改，这就意味着不能使curErr指向其他对象。任何企图给const指针赋值的行为（即使给curErr赋回同样的值）都会导致编译时的错误。与任何const量一样，const指针也必须在定义时初始化。</p>
+<p><strong>指向const对象的const指针</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14159</span>;</span><br><span class="line"><span class="comment">// pi_ptr is const and points to a const object</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *<span class="keyword">const</span> pi_ptr = &amp;pi;</span><br></pre></td></tr></table></figure>
+<p>在本例中，既不能修改pi_ptr所指向对象的值，也不允许修改该指针的指向（即pi_ptr中存放的地址值）。可从右向左阅读上述声明语句：“pi_ptr首先是一个const指针，指向double类型的const对象”。</p>
+<p><strong>指针和typedef</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">string</span> *pstring;</span><br><span class="line"><span class="keyword">const</span> pstring cstr;</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cstr is a const pointer string</span></span><br><span class="line"><span class="built_in">string</span>* <span class="keyword">const</span> cstr;   <span class="comment">// equivalent to const pstring cstr</span></span><br></pre></td></tr></table></figure>
+<p>7.<a href="https://www.cnblogs.com/dfcao/p/csapp_intr1_1-2.html" target="_blank" rel="noopener">gcc编译过程简述</a></p>
+<p>8.什么是野指针？造成野指针的原因？如何避免野指针？</p>
+<p>野指针不是NULL指针，它是随机指向的，系统自动对其初始化。<br>它有可能指向的是一个空白的内存区域，可能指向的是已经受保护的区域，甚至可能指向系统的关键内存，那样的话，也许我们后面不小心对指针进行操作就有可能让系统出现紊乱，甚至死机。</p>
+<p>1.指针变量没有被初始化。任何指针变量刚被创建时不会自动成为NULL指针，它的默认值是随机的，它会乱指一气。<br>2.指针p被free或者delete之后，没有置为NULL，让人误以为p是个合法的指针。<br>3.指针操作超越了变量的作用范围。这种情况让人防不胜防。</p>
+<p>通常避免野指针的办法是正确的使用指针。<br>1.声明一个pointer的时候注意初始化为null：<br> int*   pInt   =   NULL;<br> 2.分配完内存以后注意ASSERT：<br>pInt   =   new   int[num];<br>ASSERT(pInt   !=   NULL);<br>3.删除时候注意用对操作符：<br>对于new   int类型的，用delete，<br>对于new   int[]类型的，用delete []<br>4.删除完毕以后记得给他null地址：<br>delete   []   pInt;<br> pInt   =   NULL;<br>5.记住，谁分配的谁回收，不要再一个函数里面分配local   pointer，送到另外一个函数去delete。<br> 6.返回local address是非常危险的，如必须这样做，请写注释到程序里面，免得忘记。</p>
+<p><strong>补充：</strong>如果是建立一个与指针相同类型的空间，实际上是在内存中的空白区域中开辟了这么一个受保护的内存空间，然后用指针来指向它，那么指针里的地址就 是这个受保护空间的地址了，而不是不可预知的啦，然后我们就可以通过指针对这个空间进行相应的操作了；如果我们把指针设为NULL，我们在头文件定义中的 #define NULL 0 可以知道，其实NULL就是表示0，那么我们让指针＝NULL，实际上就是让指针＝0，如此，指针里的地址（机器数）就被初始化为0了，而内存中地址为0 的内存空间……不用多说也能想象吧，这个地址是特定的，那么也就不是不可预知的在内存中乱指一气的野指针了。还应该注意的是，<strong>free和delete只是把指针所指的 内存给释放掉，但并没有把指针本身干掉。指针p被free以后其地址仍然不变（非NULL），只是该地址对应的内存是垃圾，p成了“野指针”。如果此时不 把p设置为NULL，会让人误以为p是个合法的指针。</strong></p>
+<p>9.<a href="http://www.sohu.com/a/165054117_610509" target="_blank" rel="noopener">内存泄漏了怎么办？</a></p>
 <p><img src="/2018/07/16/C-问答/锐明面经_C++.png" alt="锐明C++面经"> </p>
 
       
@@ -211,6 +239,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -401,6 +440,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">English Learning</a>
