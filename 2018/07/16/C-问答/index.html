@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>C++问答 | Happy Ding&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针 1const double *cptr;   // cptr may point to a double that is const">
+  <meta name="description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针">
 <meta name="keywords" content="C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++问答">
 <meta property="og:url" content="http://yoursite.com/2018/07/16/C-问答/index.html">
 <meta property="og:site_name" content="Happy Ding&#39;s Blog">
-<meta property="og:description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针 1const double *cptr;   // cptr may point to a double that is const">
+<meta property="og:description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/07/16/C-问答/锐明面经_C++.png">
-<meta property="og:updated_time" content="2018-07-17T02:13:15.384Z">
+<meta property="og:updated_time" content="2018-07-18T11:36:07.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++问答">
-<meta name="twitter:description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针 1const double *cptr;   // cptr may point to a double that is const">
+<meta name="twitter:description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针">
 <meta name="twitter:image" content="http://yoursite.com/2018/07/16/C-问答/锐明面经_C++.png">
   
     <link rel="alternative" href="/atom.xml" title="Happy Ding&#39;s Blog" type="application/atom+xml">
@@ -188,6 +188,7 @@
 <p>5.<a href="https://blog.csdn.net/vanbreaker/article/details/7605367" target="_blank" rel="noopener">Linux伙伴系统（一）——伙伴系统的概述</a></p>
 <p>6.<a href="https://www.cnblogs.com/lihuidashen/p/4378884.html" target="_blank" rel="noopener">指向const的指针与const指针</a></p>
 <p><strong>指向const（对象）的指针</strong></p>
+<a id="more"></a>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *cptr;   <span class="comment">// cptr may point to a double that is const</span></span><br></pre></td></tr></table></figure>
 <p>cptr本身并不是const。在定义时不需要对它进行初始化，如果需要的话，允许给cptr重新赋值，使其指向另一个const对象。但不能通过cptr修改其所指对象的值。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*cptr = <span class="number">42</span>;   <span class="comment">// error: *cptr might be const</span></span><br></pre></td></tr></table></figure>

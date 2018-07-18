@@ -186,29 +186,9 @@
 <p>5.<a href="https://blog.csdn.net/vanbreaker/article/details/7605367" target="_blank" rel="noopener">Linux伙伴系统（一）——伙伴系统的概述</a></p>
 <p>6.<a href="https://www.cnblogs.com/lihuidashen/p/4378884.html" target="_blank" rel="noopener">指向const的指针与const指针</a></p>
 <p><strong>指向const（对象）的指针</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *cptr;   <span class="comment">// cptr may point to a double that is const</span></span><br></pre></td></tr></table></figure>
-<p>cptr本身并不是const。在定义时不需要对它进行初始化，如果需要的话，允许给cptr重新赋值，使其指向另一个const对象。但不能通过cptr修改其所指对象的值。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*cptr = <span class="number">42</span>;   <span class="comment">// error: *cptr might be const</span></span><br></pre></td></tr></table></figure>
-<p>在实际的程序中，指向const的指针常用作函数的形参。将形参定义为指向const的指针，以此确保传递给函数的实际对象在函数中不因为形参而被修改。</p>
-<p><strong>const指针</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int errNumb = 0；</span><br><span class="line">int* const curErr = &amp;errNumb; //curErr is a constant pointer</span><br></pre></td></tr></table></figure>
-<p>从右向左把上述定义语句读作“curErr是指向int型对象的const指针”。与其他const量一样，const指针的值不能修改，这就意味着不能使curErr指向其他对象。任何企图给const指针赋值的行为（即使给curErr赋回同样的值）都会导致编译时的错误。与任何const量一样，const指针也必须在定义时初始化。</p>
-<p><strong>指向const对象的const指针</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> pi = <span class="number">3.14159</span>;</span><br><span class="line"><span class="comment">// pi_ptr is const and points to a const object</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *<span class="keyword">const</span> pi_ptr = &amp;pi;</span><br></pre></td></tr></table></figure>
-<p>在本例中，既不能修改pi_ptr所指向对象的值，也不允许修改该指针的指向（即pi_ptr中存放的地址值）。可从右向左阅读上述声明语句：“pi_ptr首先是一个const指针，指向double类型的const对象”。</p>
-<p><strong>指针和typedef</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">string</span> *pstring;</span><br><span class="line"><span class="keyword">const</span> pstring cstr;</span><br></pre></td></tr></table></figure>
-<p>等价于：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cstr is a const pointer string</span></span><br><span class="line"><span class="built_in">string</span>* <span class="keyword">const</span> cstr;   <span class="comment">// equivalent to const pstring cstr</span></span><br></pre></td></tr></table></figure>
-<p>7.<a href="https://www.cnblogs.com/dfcao/p/csapp_intr1_1-2.html" target="_blank" rel="noopener">gcc编译过程简述</a></p>
-<p>8.什么是野指针？造成野指针的原因？如何避免野指针？</p>
-<p>野指针不是NULL指针，它是随机指向的，系统自动对其初始化。<br>它有可能指向的是一个空白的内存区域，可能指向的是已经受保护的区域，甚至可能指向系统的关键内存，那样的话，也许我们后面不小心对指针进行操作就有可能让系统出现紊乱，甚至死机。</p>
-<p>1.指针变量没有被初始化。任何指针变量刚被创建时不会自动成为NULL指针，它的默认值是随机的，它会乱指一气。<br>2.指针p被free或者delete之后，没有置为NULL，让人误以为p是个合法的指针。<br>3.指针操作超越了变量的作用范围。这种情况让人防不胜防。</p>
-<p>通常避免野指针的办法是正确的使用指针。<br>1.声明一个pointer的时候注意初始化为null：<br> int*   pInt   =   NULL;<br> 2.分配完内存以后注意ASSERT：<br>pInt   =   new   int[num];<br>ASSERT(pInt   !=   NULL);<br>3.删除时候注意用对操作符：<br>对于new   int类型的，用delete，<br>对于new   int[]类型的，用delete []<br>4.删除完毕以后记得给他null地址：<br>delete   []   pInt;<br> pInt   =   NULL;<br>5.记住，谁分配的谁回收，不要再一个函数里面分配local   pointer，送到另外一个函数去delete。<br> 6.返回local address是非常危险的，如必须这样做，请写注释到程序里面，免得忘记。</p>
-<p><strong>补充：</strong>如果是建立一个与指针相同类型的空间，实际上是在内存中的空白区域中开辟了这么一个受保护的内存空间，然后用指针来指向它，那么指针里的地址就 是这个受保护空间的地址了，而不是不可预知的啦，然后我们就可以通过指针对这个空间进行相应的操作了；如果我们把指针设为NULL，我们在头文件定义中的 #define NULL 0 可以知道，其实NULL就是表示0，那么我们让指针＝NULL，实际上就是让指针＝0，如此，指针里的地址（机器数）就被初始化为0了，而内存中地址为0 的内存空间……不用多说也能想象吧，这个地址是特定的，那么也就不是不可预知的在内存中乱指一气的野指针了。还应该注意的是，<strong>free和delete只是把指针所指的 内存给释放掉，但并没有把指针本身干掉。指针p被free以后其地址仍然不变（非NULL），只是该地址对应的内存是垃圾，p成了“野指针”。如果此时不 把p设置为NULL，会让人误以为p是个合法的指针。</strong></p>
-<p>9.<a href="http://www.sohu.com/a/165054117_610509" target="_blank" rel="noopener">内存泄漏了怎么办？</a></p>
-<p><img src="/2018/07/16/C-问答/锐明面经_C++.png" alt="锐明C++面经"> </p>
-
+        
+          <a class="article-more-a" href="/2018/07/16/C-问答/#more">more >></a>
+        
       
 
       
@@ -284,15 +264,9 @@
         <h2 id="2018-07-16"><a href="#2018-07-16" class="headerlink" title="2018.07.16"></a>2018.07.16</h2><p>When will this machine be <strong>set in motion</strong> again?<br>这台机器什么时候才会再次启动？</p>
 <p>Please don’t move around because the bus is still <strong>in motion</strong>.<br>巴士仍在运行中，请不要乱走。</p>
 <p>“慢动作”：slow motion<br>Let’s see that goal again <strong>in slow motion</strong>.<br>我们再用慢镜头看一下那个进球。 </p>
-<p>She does not feel well when she is on board a ship because she has <strong>motion sickness</strong>.<br>她在船上时会不舒服，因为她晕船。</p>
-<p>I’m sorry that I don’t <strong>conform to</strong> your preconceived notions of perfection. 很抱歉，我并不符合你先入为主的完美观。 </p>
-<p>I’m sorry that I don’t <strong>meet with</strong> your preconceived notions of perfection. 很抱歉，我并不符合你先入为主的完美观。 </p>
-<p>Some couples <strong>argue over</strong> minor issues.<br>有的夫妻会为细枝末节的问题争吵。 </p>
-<p>He often <strong>argues with</strong> his wife.<br>他总和妻子争吵。 </p>
-<p>argue someone into doing something “劝说某人做某事”<br>I urged him to get away and <strong>cool off</strong>.<br>我劝他离开并冷静下来。 </p>
-<p>He tried to <strong>cool himself off</strong> with an iced drink.<br>他尝试用一杯冰饮让自己凉快下来。 </p>
-<p>cool his heels “被迫等待”<br>He had to <strong>cool his heels</strong> at the long line for checkout.<br>他结账时不得不排长队等待。 </p>
-
+        
+          <a class="article-more-a" href="/2018/07/16/地道表达法/#more">more >></a>
+        
       
 
       
@@ -365,10 +339,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="2018-07-17"><a href="#2018-07-17" class="headerlink" title="2018.07.17"></a>2018.07.17</h2><p>你别嘲弄他们。<br>You ought not to make fun of them.</p>
-<p>我去过那里太多次了。<br>I went there times without number.</p>
-<p>我忍不住要大笑。<br>I could hardly keep from laughing.</p>
-<h2 id="2018-07-13"><a href="#2018-07-13" class="headerlink" title="2018.07.13"></a>2018.07.13</h2><p>咖啡的价格已经回落。<br>The price of coffee has come down.</p>
+        <h2 id="2018-07-18"><a href="#2018-07-18" class="headerlink" title="2018.07/18"></a>2018.07/18</h2><p>我相信这是一个恰当的例子。<br>I believe this is a case in point.</p>
+<p>咖啡的价格已经回落。<br>The price of coffee has come down.</p>
+<p>我太累了，不能再走了。<br>I am too tired to keep on walking.</p>
         
           <a class="article-more-a" href="/2018/07/12/扇贝炼句/#more">more >></a>
         
@@ -447,28 +420,10 @@
         <p>为什么搭建个人博客呢？因为.md文件在手机上打不开，听鸟哥说可以搭建个人博客来看。话不多说，看步骤。</p>
 <h2 id="一、下载安装Git"><a href="#一、下载安装Git" class="headerlink" title="一、下载安装Git"></a>一、下载安装Git</h2><p>没啥好说的，和安装一般软件一样。</p>
 <h2 id="二、下载安装Node-js"><a href="#二、下载安装Node-js" class="headerlink" title="二、下载安装Node.js"></a>二、下载安装Node.js</h2><p>也没啥好说的，和安装一般软件一样。</p>
-<h2 id="三、安装并初始化Hexo"><a href="#三、安装并初始化Hexo" class="headerlink" title="三、安装并初始化Hexo"></a>三、安装并初始化Hexo</h2><p>1.右键Git Bash，输入命令：npm insatll -g hexo<br>2.安装完成后，新建文件夹，在文件夹下右键Git Bash，然后输入命令：hexo init<br>3.在_config.yml进行基础配置。</p>
-<!--Read-->
-<h2 id="四、安装Hexo主题"><a href="#四、安装Hexo主题" class="headerlink" title="四、安装Hexo主题"></a>四、安装Hexo主题</h2><p>1.在Git Bash中，输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
-<p>2.修改Hexo根目录下的 <code>_config.yml</code> ： <code>theme: yilia</code> </p>
-<p>3.更新使用以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd themes/yilia</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
-<h2 id="五、浏览本地博客"><a href="#五、浏览本地博客" class="headerlink" title="五、浏览本地博客"></a>五、浏览本地博客</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>在浏览器中输入：<code>localhost:4000/</code>，就可以进行访问了。</p>
-<h2 id="六、写文章"><a href="#六、写文章" class="headerlink" title="六、写文章"></a>六、写文章</h2><p>在E:\Hexo\source_posts文件下，新建.md文件就可以写文章</p>
-<h2 id="七、部署到Github上"><a href="#七、部署到Github上" class="headerlink" title="七、部署到Github上"></a>七、部署到Github上</h2><p>1、申请Github账号</p>
-<p>2、New repository</p>
-<p>3、在_config.yml进行配置</p>
-<p>4、安装hexo-deployer-git自动部署发布工具</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git  --save</span><br></pre></td></tr></table></figure>
-<p>5、发布到Github</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<p>6、在浏览器中输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://xxx.github.io/</span><br></pre></td></tr></table></figure>
-<h2 id="八、补充及参考"><a href="#八、补充及参考" class="headerlink" title="八、补充及参考"></a>八、补充及参考</h2><p>1、<a href="https://segmentfault.com/a/1190000002632530" target="_blank" rel="noopener">Hexo常用命令笔记</a></p>
-<p>2、<a href="http://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">使用hexo+Github搭建免费个人博客详细教程</a></p>
-
+<h2 id="三、安装并初始化Hexo"><a href="#三、安装并初始化Hexo" class="headerlink" title="三、安装并初始化Hexo"></a>三、安装并初始化Hexo</h2>
+        
+          <a class="article-more-a" href="/2018/07/07/使用Hexo和Github搭建个人博客教程/#more">more >></a>
+        
       
 
       
@@ -534,12 +489,9 @@
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        
+          <a class="article-more-a" href="/2018/07/06/hello-world/#more">more >></a>
+        
       
 
       
