@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/7 | Happy Ding&#39;s Blog</title>
+  <title>《C++ Primer中文版》阅读笔记 | Happy Ding&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Happy Ding&apos;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Happy Ding&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/07/index.html">
+  <meta name="description" content="第12章   类1、构造函数可以被重载。2、class obj;   class *ptr = &amp;amp;obj;3、explicit关键字可以抑制由构造函数定义的隐式转换。">
+<meta name="keywords" content="C&#x2F;C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《C++ Primer中文版》阅读笔记">
+<meta property="og:url" content="http://yoursite.com/2018/08/20/《C-Primer中文版》阅读笔记/index.html">
 <meta property="og:site_name" content="Happy Ding&#39;s Blog">
-<meta property="og:description" content="Happy Ding&apos;s Blog">
+<meta property="og:description" content="第12章   类1、构造函数可以被重载。2、class obj;   class *ptr = &amp;amp;obj;3、explicit关键字可以抑制由构造函数定义的隐式转换。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-20T13:40:19.469Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Happy Ding&#39;s Blog">
-<meta name="twitter:description" content="Happy Ding&apos;s Blog">
+<meta name="twitter:title" content="《C++ Primer中文版》阅读笔记">
+<meta name="twitter:description" content="第12章   类1、构造函数可以被重载。2、class obj;   class *ptr = &amp;amp;obj;3、explicit关键字可以抑制由构造函数定义的隐式转换。">
   
     <link rel="alternative" href="/atom.xml" title="Happy Ding&#39;s Blog" type="application/atom+xml">
   
@@ -157,36 +159,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-《C-Primer中文版》阅读笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/16/C-问答/" class="archive-article-date">
-  	<time datetime="2018-07-16T14:07:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/16/C-问答/">C++问答</a>
+    <h1 class="article-title" itemprop="name">
+      《C++ Primer中文版》阅读笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/20/《C-Primer中文版》阅读笔记/" class="archive-article-date">
+  	<time datetime="2018-08-20T13:38:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="第12章-类"><a href="#第12章-类" class="headerlink" title="第12章   类"></a>第12章   类</h3><p>1、构造函数可以被重载。<br>2、<code>class obj;   class *ptr = &amp;obj;</code><br>3、explicit关键字可以抑制由构造函数定义的隐式转换。</p>
+<a id="more"></a>
+<h3 id="第13章-复制控制"><a href="#第13章-复制控制" class="headerlink" title="第13章   复制控制"></a>第13章   复制控制</h3><p>1、当类具有指针成员时，需要类定义自己的复制控制成员。<br>2、当两个指针指向同一对象时，可使用任一指针改变基础对象。<br>3、悬垂指针就是指向曾经存在的对象，但该对象已经不再存在了。使用智能指针可以避免这种现象。<br>4、析构函数的自动工作不会删除指针成员所指向的对象。</p>
+<h3 id="第14章-重载操作符与转换"><a href="#第14章-重载操作符与转换" class="headerlink" title="第14章 重载操作符与转换"></a>第14章 重载操作符与转换</h3><p>1、作为成员函数的操作符有一个隐含的this形参，限定为第一个操作数。<br>2、函数对象：重载函数调用操作符的类，其对象常称为函数对象，即它们是行为类似函数的对象。如下就是一个函数对象定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Sum&#123;</span><br><span class="line">    public:</span><br><span class="line">    int operator()(int i, int j)&#123;return i+j;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="第15章-面向对象编程（数据抽象、继承和动态绑定）"><a href="#第15章-面向对象编程（数据抽象、继承和动态绑定）" class="headerlink" title="第15章 面向对象编程（数据抽象、继承和动态绑定）"></a>第15章 面向对象编程（数据抽象、继承和动态绑定）</h3><p>1、虚函数（virtual）就是基类期待派生类重新定义的。<br>2、在C++中，通过基类的引用（或指针）调用虚函数时，发生动态绑定。<br>3、覆盖虚函数机制：使用作用域操作符。<br>4、具有指针成员的类一般需要定义自己的复制控制来管理这些成员。<br>5、与基类成员同名的派生类成员将屏蔽对基类成员的直接访问，使用作用域操作符可以访问被屏蔽的成员。<br>6、C++中一个通用技术是定义包装（cover）类或句柄（handle）类。句柄类存储和管理基类指针。<br>7、虚析构函数是为了解决基类的指针指向派生类对象，并用基类的指针删除派生类对象。如果某个类不包含虚函数，那一般是表示它将不作为一个基类来使用。虚析构函数可以防止内存泄漏。<br>8、纯虚函数会产生抽象类，所以在想要成为抽象类的类里声明一个纯虚析构函数。纯虚函数是一种特殊的虚函数，在许多情况下，在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做。</p>
+<h3 id="第16章-模板和泛型编程"><a href="#第16章-模板和泛型编程" class="headerlink" title="第16章 模板和泛型编程"></a>第16章 模板和泛型编程</h3><p>1、面向对象编程所依赖的多态性称为运行时多态性；泛型编程所依赖的多态性称为编译时多态性或参数式多态性。<br>2、标准库中的容器、迭代器和算法是很好的泛型编程的例子。<br>3、在C++中，模板是泛型编程的基础。</p>
+<h3 id="第17章-用于大型程序的工具"><a href="#第17章-用于大型程序的工具" class="headerlink" title="第17章 用于大型程序的工具"></a>第17章 用于大型程序的工具</h3><p>1、C++的异常处理机制使得异常的引发和异常的处理不必在同一个函数中。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抛掷异常的程序段</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">throw</span>   表达式;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//捕获并处理异常的程序段</span></span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    复合语句</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(异常类型声明)</span><br><span class="line">    复合语句</span><br><span class="line"><span class="keyword">catch</span>(类型(形参))</span><br><span class="line">    复合语句</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>2、若有异常则通过throw操作创建一个异常对象并抛掷。<br>3、将可能抛出异常的程序段嵌在try块中。控制通过正常的顺序执行到达try语句，然后执行try块内的保护段。更多参考：<a href="https://m.jb51.net/article/80913.htm" target="_blank" rel="noopener">https://m.jb51.net/article/80913.htm</a><br>4、一个命名空间是一个作用域。</p>
+<h3 id="第18章-特殊工具与技术"><a href="#第18章-特殊工具与技术" class="headerlink" title="第18章 特殊工具与技术"></a>第18章 特殊工具与技术</h3><p>1、C++的内存分配是一种类型化操作：new为特定类型分配内存，并在新分配的内存中构造该类型的一个对象。new表达式自动运行合适的构造函数来初始化每个动态分配的类型对象。使用delete表达式的时候，调用析构函数撤销对象，并将对象所用内存还给系统。<br>2、allocator类是一个模板，它提供类型化的内存分配以及对象构造与撤销。allocator类将内存分配和对象构造分开。allocator的用户必须分别construct和destroy放置在该内存中的对象。<br>3、operator new函数和operator delete函数有两个重载版本。使用它们获得未构造的内存，它们在<code>void*</code>指针而不是类型化指针上进行操作。<br>4、联合是一种特殊的类。一个union对象可以有多个数据成员，但在任何时候，只有一个成员可以有值。<br>5、关键字volatile是给编译器的指示，指出对这样的对象不应该执行优化。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -198,111 +235,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/20/《C-Primer中文版》阅读笔记/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/16/地道表达法/" class="archive-article-date">
-  	<time datetime="2018-07-16T03:10:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/16/扇贝炼句/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">扇贝炼句</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/16/地道表达法/">地道表达法</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">English Learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/07/使用Hexo和Github搭建个人博客教程/" class="archive-article-date">
-  	<time datetime="2018-07-07T08:13:21.442Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/07/使用Hexo和Github搭建个人博客教程/">使用Hexo和Github搭建个人博客教程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/06/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-06T09:26:40.722Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/06/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -325,8 +357,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
