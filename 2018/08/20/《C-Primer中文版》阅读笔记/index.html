@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>《C++ Primer中文版》阅读笔记 | Happy Ding&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第12章   类1、构造函数可以被重载。2、class obj;   class *ptr = &amp;amp;obj;3、explicit关键字可以抑制由构造函数定义的隐式转换。">
+  <meta name="description" content="第12章   类类就是定义了一个新的类型和一个新的作用域。类成员：可以是数据、函数或类型别名。构造函数：用于给每个数据成员设置适当的初始值。成员函数：const成员不能改变其所操作的对象的数据成员，const必须同时出现在声明和定义中。 1、构造函数可以被重载。2、class obj;   class *ptr = &amp;amp;obj;3、explicit关键字可以抑制由构造函数定义的隐式转换。">
 <meta name="keywords" content="C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《C++ Primer中文版》阅读笔记">
 <meta property="og:url" content="http://yoursite.com/2018/08/20/《C-Primer中文版》阅读笔记/index.html">
 <meta property="og:site_name" content="Happy Ding&#39;s Blog">
-<meta property="og:description" content="第12章   类1、构造函数可以被重载。2、class obj;   class *ptr = &amp;amp;obj;3、explicit关键字可以抑制由构造函数定义的隐式转换。">
+<meta property="og:description" content="第12章   类类就是定义了一个新的类型和一个新的作用域。类成员：可以是数据、函数或类型别名。构造函数：用于给每个数据成员设置适当的初始值。成员函数：const成员不能改变其所操作的对象的数据成员，const必须同时出现在声明和定义中。 1、构造函数可以被重载。2、class obj;   class *ptr = &amp;amp;obj;3、explicit关键字可以抑制由构造函数定义的隐式转换。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-20T13:40:19.469Z">
+<meta property="og:updated_time" content="2018-09-02T11:41:57.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《C++ Primer中文版》阅读笔记">
-<meta name="twitter:description" content="第12章   类1、构造函数可以被重载。2、class obj;   class *ptr = &amp;amp;obj;3、explicit关键字可以抑制由构造函数定义的隐式转换。">
+<meta name="twitter:description" content="第12章   类类就是定义了一个新的类型和一个新的作用域。类成员：可以是数据、函数或类型别名。构造函数：用于给每个数据成员设置适当的初始值。成员函数：const成员不能改变其所操作的对象的数据成员，const必须同时出现在声明和定义中。 1、构造函数可以被重载。2、class obj;   class *ptr = &amp;amp;obj;3、explicit关键字可以抑制由构造函数定义的隐式转换。">
   
     <link rel="alternative" href="/atom.xml" title="Happy Ding&#39;s Blog" type="application/atom+xml">
   
@@ -179,12 +179,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="第12章-类"><a href="#第12章-类" class="headerlink" title="第12章   类"></a>第12章   类</h3><p>1、构造函数可以被重载。<br>2、<code>class obj;   class *ptr = &amp;obj;</code><br>3、explicit关键字可以抑制由构造函数定义的隐式转换。</p>
+        <h3 id="第12章-类"><a href="#第12章-类" class="headerlink" title="第12章   类"></a>第12章   类</h3><p>类就是定义了一个新的类型和一个新的作用域。<br>类成员：可以是数据、函数或类型别名。构造函数：用于给每个数据成员设置适当的初始值。成员函数：const成员不能改变其所操作的对象的数据成员，const必须同时出现在声明和定义中。</p>
+<p>1、构造函数可以被重载。<br>2、<code>class obj;   class *ptr = &amp;obj;</code><br>3、explicit关键字可以抑制由构造函数定义的隐式转换。</p>
 <a id="more"></a>
 <h3 id="第13章-复制控制"><a href="#第13章-复制控制" class="headerlink" title="第13章   复制控制"></a>第13章   复制控制</h3><p>1、当类具有指针成员时，需要类定义自己的复制控制成员。<br>2、当两个指针指向同一对象时，可使用任一指针改变基础对象。<br>3、悬垂指针就是指向曾经存在的对象，但该对象已经不再存在了。使用智能指针可以避免这种现象。<br>4、析构函数的自动工作不会删除指针成员所指向的对象。</p>
 <h3 id="第14章-重载操作符与转换"><a href="#第14章-重载操作符与转换" class="headerlink" title="第14章 重载操作符与转换"></a>第14章 重载操作符与转换</h3><p>1、作为成员函数的操作符有一个隐含的this形参，限定为第一个操作数。<br>2、函数对象：重载函数调用操作符的类，其对象常称为函数对象，即它们是行为类似函数的对象。如下就是一个函数对象定义：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Sum&#123;</span><br><span class="line">    public:</span><br><span class="line">    int operator()(int i, int j)&#123;return i+j;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="第15章-面向对象编程（数据抽象、继承和动态绑定）"><a href="#第15章-面向对象编程（数据抽象、继承和动态绑定）" class="headerlink" title="第15章 面向对象编程（数据抽象、继承和动态绑定）"></a>第15章 面向对象编程（数据抽象、继承和动态绑定）</h3><p>1、虚函数（virtual）就是基类期待派生类重新定义的。<br>2、在C++中，通过基类的引用（或指针）调用虚函数时，发生动态绑定。<br>3、覆盖虚函数机制：使用作用域操作符。<br>4、具有指针成员的类一般需要定义自己的复制控制来管理这些成员。<br>5、与基类成员同名的派生类成员将屏蔽对基类成员的直接访问，使用作用域操作符可以访问被屏蔽的成员。<br>6、C++中一个通用技术是定义包装（cover）类或句柄（handle）类。句柄类存储和管理基类指针。<br>7、虚析构函数是为了解决基类的指针指向派生类对象，并用基类的指针删除派生类对象。如果某个类不包含虚函数，那一般是表示它将不作为一个基类来使用。虚析构函数可以防止内存泄漏。<br>8、纯虚函数会产生抽象类，所以在想要成为抽象类的类里声明一个纯虚析构函数。纯虚函数是一种特殊的虚函数，在许多情况下，在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做。</p>
+<h3 id="第15章-面向对象编程（数据抽象、继承和动态绑定）"><a href="#第15章-面向对象编程（数据抽象、继承和动态绑定）" class="headerlink" title="第15章 面向对象编程（数据抽象、继承和动态绑定）"></a>第15章 面向对象编程（数据抽象、继承和动态绑定）</h3><p>面向对象编程（Object orientened programming, OOP）；用类进行数据抽象；用类派生从一个类继承到另一个类，派生类继承基类的成员；动态绑定是编译器能够在运行时决定是使用基类中定义的函数还是派生类中定义的函数。</p>
+<p><strong>0.多态性（polymorphism）：</strong>之所以称通过继承而相关联的类型为多态类型，是因为在许多情况下可以互换地位用派生类或基类型的“许多形态”。<br><strong>1.继承：</strong>派生类（derived class）能够继承基类（base class）。因继承而相关联的类构成了一个继承层次（inheritan cehierarchy）。定义为virtual的函数是基类期待派生类重新定义的，基类希望派生类继承的函数不能定义为虚函数。<br><strong>2.动态绑定：</strong>通过动态绑定（dynamic binding），我们能够编写程序使用继承层次中任意类型的对象，无需关心对象的具体类型。<br>因为形参是引用且net_price是虚函数，所有对net_price的调用将在运行时确定。<br><strong>Note：</strong>在C++中，通过基类的引用（或指针调用）虚函数时，发生动态绑定。用引用（或指针）调用的虚函数在运行时确定，被调用的函数引用（或指针）所指对象的实际类型所定义的。</p>
+<h4 id="15-2-1-定义基类"><a href="#15-2-1-定义基类" class="headerlink" title="15.2.1 定义基类"></a>15.2.1 定义基类</h4><p>注意到继承层次的根类一般都要定义虚析构函数。<br>1.基类成员函数<br>保留字virtual只在类内部的成员函数声明中出现，不能用在类定义体外部出现的函数定义上。<br>2.访问控制和继承<br>private成员只能由基类的成员和友元访问。受保护的访问标号(protected access label)：protected成员可以被派生类对象访问但不能被该类型的普通用户访问。</p>
+<p>派生类只能通过派生类对象访问其基类的protected成员。</p>
+<p>为了定义派生类，使用类派生列表(class derivation list)指定基类。类派生列表指定了一个或多个基类，如下：<br>class classname: access-label base-class<br>每个派生类对象包含两个部分：从基类继承的成员和自己定义的成员。</p>
+<ol>
+<li>定义派生类： class Bulk-item: public Item-base {…}</li>
+<li>派生类和虚函数。派生类型必须对想要重定义的每个继承成员进行声明。</li>
+<li>派生类对象包含基类对象作为子对象。</li>
+<li>派生类中的函数可以使用基类的成员：派生类函数可以在类的内部或外部定义。</li>
+<li>用作基类的类必须是已定义的：如果已经声明了Item-base类，但没有定义它，则不能用Item-base作基类。</li>
+<li>用派生类作基类：从效果来说，最底层的派生类对象包含其每个直接基类和间接基类的子对象。</li>
+<li>派生类的声明：如果需要声明(但不实现)一个派生类，则声明包含类名但不包含派生列表。如：class Bulk-item: public Item-base;   // error</li>
+</ol>
+<p>C++中的函数调用默认不使用动态绑定，要触发动态绑定必须满足两个条件：虚+引用。</p>
+<ol>
+<li>从派生类到基类的转换。</li>
+<li>可以在运行时确定virtual函数的调用。<br>Note：只有通过引用或指针调用，虚函数才在运行时确定。只有在这些情况下，直到运行时才知道对象的动态类型。</li>
+<li>在编译时确定非virtual调用：即使Bulk-item定义了自己的book函数版本，这个调用也会调用基类中的版本。</li>
+<li>覆盖虚函数机制：使用作用域操作符。</li>
+<li>虚函数与默认实参：与其他任何函数一样，虚函数也可以有默认实参。</li>
+</ol>
+<p>对类所继承的成员的访问由基类中的成员访问级别和派生类列表中使用访问标号共同控制。<br>如果成员在基类中为private，则只有基类和基类的友元可以访问该成员。<br>如果基类成员为public或protected，则派生列表中使用的访问标号决定该成员在派生类中的访问级别：<br>如果是公用继承(public inheritance)，保持自己的访问级别：基类的public成员为派生类的public成员，基类的protected成员为派生类的protected成员。<br>如果是受保护继承(public inheritance)，基类的public和protected成员在派生类中为protected成员。<br>如果是私有继承(private inheritance)，基类的所有成员在派生类中为private成员。<br>派生访问标号还控制来自非直接派生类的访问。</p>
+<p>派生类的声明：如果需要声明(但不实现)一个派生类，则声明包含类名但不包含派生列表。如：class Bulk-item: public Item-base;   // error</p>
+<p>派生类的声明：如果需要声明(但不实现)一个派生类，则声明包含类名但不包含派生列表。如：class Bulk-item: public Item-base;   // error</p>
+<p>1、虚函数（virtual）就是基类期待派生类重新定义的。<br>2、在C++中，通过基类的引用（或指针）调用虚函数时，发生动态绑定。<br>3、覆盖虚函数机制：使用作用域操作符。<br>4、具有指针成员的类一般需要定义自己的复制控制来管理这些成员。<br>5、与基类成员同名的派生类成员将屏蔽对基类成员的直接访问，使用作用域操作符可以访问被屏蔽的成员。<br>6、C++中一个通用技术是定义包装（cover）类或句柄（handle）类。句柄类存储和管理基类指针。<br>7、虚析构函数是为了解决基类的指针指向派生类对象，并用基类的指针删除派生类对象。如果某个类不包含虚函数，那一般是表示它将不作为一个基类来使用。虚析构函数可以防止内存泄漏。<br>8、纯虚函数会产生抽象类，所以在想要成为抽象类的类里声明一个纯虚析构函数。纯虚函数是一种特殊的虚函数，在许多情况下，在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做。</p>
 <h3 id="第16章-模板和泛型编程"><a href="#第16章-模板和泛型编程" class="headerlink" title="第16章 模板和泛型编程"></a>第16章 模板和泛型编程</h3><p>1、面向对象编程所依赖的多态性称为运行时多态性；泛型编程所依赖的多态性称为编译时多态性或参数式多态性。<br>2、标准库中的容器、迭代器和算法是很好的泛型编程的例子。<br>3、在C++中，模板是泛型编程的基础。</p>
 <h3 id="第17章-用于大型程序的工具"><a href="#第17章-用于大型程序的工具" class="headerlink" title="第17章 用于大型程序的工具"></a>第17章 用于大型程序的工具</h3><p>1、C++的异常处理机制使得异常的引发和异常的处理不必在同一个函数中。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抛掷异常的程序段</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">throw</span>   表达式;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//捕获并处理异常的程序段</span></span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    复合语句</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span>(异常类型声明)</span><br><span class="line">    复合语句</span><br><span class="line"><span class="keyword">catch</span>(类型(形参))</span><br><span class="line">    复合语句</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
@@ -298,6 +324,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/09/02/数据结构阅读笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数据结构阅读笔记
+        
+      </div>
+    </a>
   
   
     <a href="/2018/08/16/扇贝炼句/" id="article-nav-older" class="article-nav-link-wrap">
@@ -432,6 +467,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">English Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
