@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Happy Ding&#39;s Blog">
 <meta property="og:description" content="《数据结构（C语言）》阅读笔记1.1 什么是数据结构 具体问题 -&amp;gt; 数学模型(找出操作对象之间的关系) -&amp;gt; 解数学模型的算法 -&amp;gt; 编程 -&amp;gt; 调试。书目检索系统 -&amp;gt; “表”，线性的数据结构。计算机与人对弈问题 -&amp;gt; ”树“是非数值计算问题的数学模型，也是一种数据结构。多交叉路口交通灯的管理 -&amp;gt; “图”的数据结构。数据结构是一门研究非数值计算的程序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-02T11:49:40.528Z">
+<meta property="og:updated_time" content="2018-09-02T13:33:04.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构阅读笔记">
 <meta name="twitter:description" content="《数据结构（C语言）》阅读笔记1.1 什么是数据结构 具体问题 -&amp;gt; 数学模型(找出操作对象之间的关系) -&amp;gt; 解数学模型的算法 -&amp;gt; 编程 -&amp;gt; 调试。书目检索系统 -&amp;gt; “表”，线性的数据结构。计算机与人对弈问题 -&amp;gt; ”树“是非数值计算问题的数学模型，也是一种数据结构。多交叉路口交通灯的管理 -&amp;gt; “图”的数据结构。数据结构是一门研究非数值计算的程序">
@@ -184,6 +184,9 @@
 <a id="more"></a>
 <p>1.2 基本概念和术语<br>数据(data)是对客观事物的符号表示，在计算机科学中是指所有能输入到计算机中并被计算机程序处理的符号的总称。<br>数据元素(data element)是数据的基本单元，在计算机程序中通常作为一个整体进行考虑和处理。一个数据元素可由若干个数据项(data item)组成。数据项是数据的不可分割的最小单位。<br>数据对象(data object)是性质相同的数据元素的集合，是数据的一个子集。<br>数据结构(data structure)是相互之间存在一种或多种特定关系的数据元素的集合。<br>根据数据元素之间关系的不同特性，有4类基本结构：集合(结构中的数据元素之间除了“同属于一个集合”的关系外，别无其他关系)、线性结构(结构中的数据元素之间存在一个对一个的关系)、树形结构(结构中的数据元素之间存在一个对多个的关系)、图状结构或网状结构(结构中的数据元素之间存在多个对多个的关系)。<br>数据结构在计算机中的表示(又称映像)称为数据的物理结构，又称存储结构。在计算机中表示信息的最小单位是二进制的一位，叫做位。通常称位串位元素或结点。位串中对应于各个数据项的子位串称为数据域。<br>数据元素之间的关系在计算机中有两种不同的表示方法：顺序映像和非顺序映像，从而得到两种不同的存储结构：顺序存储结构和链式存储结构。顺序映像的特定是借助元素在存储器中的相对位置来表示数据元素之间的逻辑关系。非顺序映像的特定是借助指示元素存储地址的指针表示数据元素之间的逻辑关系。<br>任何一个算法的设计取决于选定的数据(逻辑)结构，而算法的实现依赖于采用的存储结构。</p>
 <p>1.CSDN关注了ShannonNansen，他博客里有数据结构相关总结。<a href="https://blog.csdn.net/ShannonNansen" target="_blank" rel="noopener">https://blog.csdn.net/ShannonNansen</a></p>
+<h2 id="《大话数据结构》阅读笔记"><a href="#《大话数据结构》阅读笔记" class="headerlink" title="《大话数据结构》阅读笔记"></a>《大话数据结构》阅读笔记</h2><p>根据排序过程中借助的主要操作，把内排序分为：插入排序、交换排序、选择排序和归并排序。按照算法的复杂程度分为两大类，冒泡排序、简单选择排序和直接插入排序属于简单算法，而希尔排序、堆排序、归并排序、快速排序属于改进算法。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort2</span><span class="params">(SqList *L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以用C语言的一维数组来实现顺序存储结构。线性表是随机存储结构。</p>
 
       
 
