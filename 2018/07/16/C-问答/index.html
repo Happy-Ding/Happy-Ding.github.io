@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>C++问答 | Happy Ding&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针">
+  <meta name="description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别    特征 new/delete malloc/free     分配内存的位置 自由存储区 堆   内存分配成功的返回值 完整类型指针 void*   内存分配失败的返回值 默认抛出异常 返回NULL   分配内存的大小 由编译器根据类型计算得出 必须显式指定字节数   处理数组 有处理数组的new版本new[]">
 <meta name="keywords" content="C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++问答">
 <meta property="og:url" content="http://yoursite.com/2018/07/16/C-问答/index.html">
 <meta property="og:site_name" content="Happy Ding&#39;s Blog">
-<meta property="og:description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针">
+<meta property="og:description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别    特征 new/delete malloc/free     分配内存的位置 自由存储区 堆   内存分配成功的返回值 完整类型指针 void*   内存分配失败的返回值 默认抛出异常 返回NULL   分配内存的大小 由编译器根据类型计算得出 必须显式指定字节数   处理数组 有处理数组的new版本new[]">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/07/16/C-问答/锐明面经_C++.png">
-<meta property="og:updated_time" content="2018-09-07T12:41:20.375Z">
+<meta property="og:updated_time" content="2018-09-10T03:44:32.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++问答">
-<meta name="twitter:description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别 4.死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法 5.Linux伙伴系统（一）——伙伴系统的概述 6.指向const的指针与const指针 指向const（对象）的指针">
+<meta name="twitter:description" content="1.进程和线程的关系和区别 2.指针函数和函数指针 3.new和malloc的区别    特征 new/delete malloc/free     分配内存的位置 自由存储区 堆   内存分配成功的返回值 完整类型指针 void*   内存分配失败的返回值 默认抛出异常 返回NULL   分配内存的大小 由编译器根据类型计算得出 必须显式指定字节数   处理数组 有处理数组的new版本new[]">
 <meta name="twitter:image" content="http://yoursite.com/2018/07/16/C-问答/锐明面经_C++.png">
   
     <link rel="alternative" href="/atom.xml" title="Happy Ding&#39;s Blog" type="application/atom+xml">
@@ -184,6 +184,67 @@
         <p>1.<a href="https://blog.csdn.net/yaosiming2011/article/details/44280797" target="_blank" rel="noopener">进程和线程的关系和区别</a></p>
 <p>2.<a href="http://nevel.cnblogs.com/p/6370264.html" target="_blank" rel="noopener">指针函数和函数指针</a></p>
 <p>3.<a href="https://www.cnblogs.com/QG-whz/p/5140930.html" target="_blank" rel="noopener">new和malloc的区别</a></p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>new/delete</th>
+<th>malloc/free</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分配内存的位置</td>
+<td>自由存储区</td>
+<td>堆</td>
+</tr>
+<tr>
+<td>内存分配成功的返回值</td>
+<td>完整类型指针</td>
+<td>void*</td>
+</tr>
+<tr>
+<td>内存分配失败的返回值</td>
+<td>默认抛出异常</td>
+<td>返回NULL</td>
+</tr>
+<tr>
+<td>分配内存的大小</td>
+<td>由编译器根据类型计算得出</td>
+<td>必须显式指定字节数</td>
+</tr>
+<tr>
+<td>处理数组</td>
+<td>有处理数组的new版本new[]</td>
+<td>需要用户计算数组的大小后进行内存分配</td>
+</tr>
+<tr>
+<td>已分配内存的扩充</td>
+<td>无法直观地处理</td>
+<td>使用realloc简单完成</td>
+</tr>
+<tr>
+<td>是否相互调用</td>
+<td>可以，看具体的operator new/delete实现</td>
+<td>不可调用new</td>
+</tr>
+<tr>
+<td>分配内存时内存不足</td>
+<td>客户能够指定处理函数或重新制定分配器</td>
+<td>无法通过用户代码进行处理</td>
+</tr>
+<tr>
+<td>函数重载</td>
+<td>允许</td>
+<td>不允许</td>
+</tr>
+<tr>
+<td>构造函数与析构函数</td>
+<td>调用</td>
+<td>不调用</td>
+</tr>
+</tbody>
+</table>
 <p>4.<a href="https://blog.csdn.net/yanxiaolx/article/details/51944048" target="_blank" rel="noopener">死锁的定义、产生原因、必要条件、避免死锁和解除死锁的方法</a></p>
 <p>5.<a href="https://blog.csdn.net/vanbreaker/article/details/7605367" target="_blank" rel="noopener">Linux伙伴系统（一）——伙伴系统的概述</a></p>
 <p>6.<a href="https://www.cnblogs.com/lihuidashen/p/4378884.html" target="_blank" rel="noopener">指向const的指针与const指针</a></p>
