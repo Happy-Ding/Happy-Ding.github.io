@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Happy Ding&#39;s Blog">
 <meta property="og:description" content="技术面一、C++（预防陷阱）（一）C++基础1、static的作用 隐藏：当我们同时编译多个文件时，所有未加static前缀的全局变量和函数都具有全局可见性。如果加了static，就会对其它源文件隐藏。 static变量存储在静态存储区（全局变量也存储在静态变量区）。存储在静态数据区的变量会在程序刚开始运行时就完成初始化，也是唯一的一次初始化。 static的第三个作用是默认初始化为0。在静态数据">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-15T08:32:36.577Z">
+<meta property="og:updated_time" content="2018-09-15T12:06:27.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="海康面试准备">
 <meta name="twitter:description" content="技术面一、C++（预防陷阱）（一）C++基础1、static的作用 隐藏：当我们同时编译多个文件时，所有未加static前缀的全局变量和函数都具有全局可见性。如果加了static，就会对其它源文件隐藏。 static变量存储在静态存储区（全局变量也存储在静态变量区）。存储在静态数据区的变量会在程序刚开始运行时就完成初始化，也是唯一的一次初始化。 static的第三个作用是默认初始化为0。在静态数据">
@@ -184,6 +184,7 @@
 <li>static变量存储在静态存储区（全局变量也存储在静态变量区）。存储在静态数据区的变量会在程序刚开始运行时就完成初始化，也是唯一的一次初始化。</li>
 <li>static的第三个作用是默认初始化为0。在静态数据区，内存中所有的字节默认值都是0x00。</li>
 </ol>
+<a id="more"></a>
 <h4 id="2、析构函数一般怎么定义？定义为虚析构函数。为什么要这样定义？"><a href="#2、析构函数一般怎么定义？定义为虚析构函数。为什么要这样定义？" class="headerlink" title="2、析构函数一般怎么定义？定义为虚析构函数。为什么要这样定义？"></a>2、析构函数一般怎么定义？定义为虚析构函数。为什么要这样定义？</h4><ol>
 <li><p>析构函数的定义是在类名的前面加一个波浪号（~）。析构函数不返回任何值，没有返回类型，也没有函数参数。由于没有函数参数，因此它不能被重载。换言之，一个类可以有多个构造函数，但是只能有一个析构函数。</p>
 </li>
