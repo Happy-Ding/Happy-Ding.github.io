@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Happy Ding&#39;s Blog">
 <meta property="og:description" content="技术面一、C++（预防陷阱）（一）C++基础0、编程基础12#define SECOND_PER_YEAR (365*24*3600)(UL)#define MIN (A,B) ( (A) &amp;lt;= (B) ? (A) : (B) ) 构造函数不能声明为虚函数。全局变量存储在静态存储区，局部变量存储在栈区。 1、static的作用 隐藏：当我们同时编译多个文件时，所有未加static前缀的全局变">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-17T16:36:22.413Z">
+<meta property="og:updated_time" content="2018-09-19T02:19:50.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="海康面试准备">
 <meta name="twitter:description" content="技术面一、C++（预防陷阱）（一）C++基础0、编程基础12#define SECOND_PER_YEAR (365*24*3600)(UL)#define MIN (A,B) ( (A) &amp;lt;= (B) ? (A) : (B) ) 构造函数不能声明为虚函数。全局变量存储在静态存储区，局部变量存储在栈区。 1、static的作用 隐藏：当我们同时编译多个文件时，所有未加static前缀的全局变">
@@ -289,6 +289,9 @@
 <h3 id="（八）自己简历的东西（要会，项目包装和面试岗位匹配）"><a href="#（八）自己简历的东西（要会，项目包装和面试岗位匹配）" class="headerlink" title="（八）自己简历的东西（要会，项目包装和面试岗位匹配）"></a>（八）自己简历的东西（要会，项目包装和面试岗位匹配）</h3><h2 id="二、数据结构"><a href="#二、数据结构" class="headerlink" title="二、数据结构"></a>二、数据结构</h2><p>数据结构知道哇？知道。说一说？数组、链表、队列、堆、栈、树。知道哪些排序算法？冒泡、插入、选择、快速、堆排序、归并排序、桶排序、基数排序。插入排序怎么实现的？遍历到一个数的时候，往前比较，找到一个比它小的数，将这个数的下一个位置的数跟它交换，继续遍历，反正就这个意思了，讲不明白可以在纸上画画。</p>
 <p>什么是平衡二叉树?<br>左右子树都是平衡二叉树，且左右子树的深度差值的绝对值不大于1。</p>
 <h2 id="三、计算机网络"><a href="#三、计算机网络" class="headerlink" title="三、计算机网络"></a>三、计算机网络</h2><h3 id="网络协议"><a href="#网络协议" class="headerlink" title="网络协议"></a>网络协议</h3><p>Internet采用TCP/IP协议，主要层次结构为：应用层，（表示层，会话层），传输层，网络层，数据链路层，物理层。<br>Internet物理地址和IP地址转换采用ARP协议（Address Resolution Protocol，地址解析协议）。<br>IP地址有两部分组成，网络号和主机号。</p>
+<p>netstat 查看到一个连接状态为TIME_WAIT 说明</p>
+<p>此连接是本地端 主动关闭，并且此连接已正常关闭。</p>
+<p>注明：TIME_WAIT是本地端主动关闭后一定会出现的状态。<br>TIME_WAIT状态并不是表示系统在等客户端的响应 不要误导人。</p>
 <h4 id="1、TCP和UDP的区别，TCP的特点，有没有试过用UDP实现TCP的基本功能等"><a href="#1、TCP和UDP的区别，TCP的特点，有没有试过用UDP实现TCP的基本功能等" class="headerlink" title="1、TCP和UDP的区别，TCP的特点，有没有试过用UDP实现TCP的基本功能等"></a>1、TCP和UDP的区别，TCP的特点，有没有试过用UDP实现TCP的基本功能等</h4><table>
 <thead>
 <tr>
