@@ -181,6 +181,8 @@
       
         <h1 id="技术面"><a href="#技术面" class="headerlink" title="技术面"></a>技术面</h1><h2 id="一、C-（预防陷阱）"><a href="#一、C-（预防陷阱）" class="headerlink" title="一、C++（预防陷阱）"></a>一、C++（预防陷阱）</h2><h3 id="（一）C-基础"><a href="#（一）C-基础" class="headerlink" title="（一）C++基础"></a>（一）C++基础</h3><h4 id="0、编程基础"><a href="#0、编程基础" class="headerlink" title="0、编程基础"></a>0、编程基础</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SECOND_PER_YEAR (365*24*3600)(UL)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MIN (A,B) ( (A) &lt;= (B) ? (A) : (B) )</span></span><br></pre></td></tr></table></figure>
 <p>构造函数不能声明为虚函数。全局变量存储在静态存储区，局部变量存储在栈区。</p>
+<p>1、在函数内定义一个字符数组，用gets函数输入字符串的时候，如果输入越界，为什么程序会崩溃？</p>
+<p>答：因为gets无法截断数组越界部分，会将所有输入都写入内存，这样越界部分就可能覆盖其他内容，造成程序崩溃。</p>
 <h4 id="1、static的作用"><a href="#1、static的作用" class="headerlink" title="1、static的作用"></a>1、static的作用</h4><ol>
 <li>隐藏：当我们同时编译多个文件时，所有未加static前缀的全局变量和函数都具有全局可见性。如果加了static，就会对其它源文件隐藏。static全局变量的作用域是定义的源文件，只被初始化一次</li>
 <li>static变量存储在静态存储区（全局变量也存储在静态变量区）。存储在静态数据区的变量会在程序刚开始运行时就完成初始化，也是唯一的一次初始化。</li>

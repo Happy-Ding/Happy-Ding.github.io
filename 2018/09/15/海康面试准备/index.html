@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>海康面试准备 | Happy Ding&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术面一、C++（预防陷阱）（一）C++基础0、编程基础12#define SECOND_PER_YEAR (365*24*3600)(UL)#define MIN (A,B) ( (A) &amp;lt;= (B) ? (A) : (B) ) 构造函数不能声明为虚函数。全局变量存储在静态存储区，局部变量存储在栈区。 1、static的作用 隐藏：当我们同时编译多个文件时，所有未加static前缀的全局变">
+  <meta name="description" content="技术面一、C++（预防陷阱）（一）C++基础0、编程基础12#define SECOND_PER_YEAR (365*24*3600)(UL)#define MIN (A,B) ( (A) &amp;lt;= (B) ? (A) : (B) ) 构造函数不能声明为虚函数。全局变量存储在静态存储区，局部变量存储在栈区。 1、在函数内定义一个字符数组，用gets函数输入字符串的时候，如果输入越界，为什么程序会">
 <meta name="keywords" content="C&#x2F;C++,数据结构,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="海康面试准备">
 <meta property="og:url" content="http://yoursite.com/2018/09/15/海康面试准备/index.html">
 <meta property="og:site_name" content="Happy Ding&#39;s Blog">
-<meta property="og:description" content="技术面一、C++（预防陷阱）（一）C++基础0、编程基础12#define SECOND_PER_YEAR (365*24*3600)(UL)#define MIN (A,B) ( (A) &amp;lt;= (B) ? (A) : (B) ) 构造函数不能声明为虚函数。全局变量存储在静态存储区，局部变量存储在栈区。 1、static的作用 隐藏：当我们同时编译多个文件时，所有未加static前缀的全局变">
+<meta property="og:description" content="技术面一、C++（预防陷阱）（一）C++基础0、编程基础12#define SECOND_PER_YEAR (365*24*3600)(UL)#define MIN (A,B) ( (A) &amp;lt;= (B) ? (A) : (B) ) 构造函数不能声明为虚函数。全局变量存储在静态存储区，局部变量存储在栈区。 1、在函数内定义一个字符数组，用gets函数输入字符串的时候，如果输入越界，为什么程序会">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-19T02:19:50.183Z">
+<meta property="og:updated_time" content="2018-09-19T02:40:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="海康面试准备">
-<meta name="twitter:description" content="技术面一、C++（预防陷阱）（一）C++基础0、编程基础12#define SECOND_PER_YEAR (365*24*3600)(UL)#define MIN (A,B) ( (A) &amp;lt;= (B) ? (A) : (B) ) 构造函数不能声明为虚函数。全局变量存储在静态存储区，局部变量存储在栈区。 1、static的作用 隐藏：当我们同时编译多个文件时，所有未加static前缀的全局变">
+<meta name="twitter:description" content="技术面一、C++（预防陷阱）（一）C++基础0、编程基础12#define SECOND_PER_YEAR (365*24*3600)(UL)#define MIN (A,B) ( (A) &amp;lt;= (B) ? (A) : (B) ) 构造函数不能声明为虚函数。全局变量存储在静态存储区，局部变量存储在栈区。 1、在函数内定义一个字符数组，用gets函数输入字符串的时候，如果输入越界，为什么程序会">
   
     <link rel="alternative" href="/atom.xml" title="Happy Ding&#39;s Blog" type="application/atom+xml">
   
@@ -181,6 +181,8 @@
       
         <h1 id="技术面"><a href="#技术面" class="headerlink" title="技术面"></a>技术面</h1><h2 id="一、C-（预防陷阱）"><a href="#一、C-（预防陷阱）" class="headerlink" title="一、C++（预防陷阱）"></a>一、C++（预防陷阱）</h2><h3 id="（一）C-基础"><a href="#（一）C-基础" class="headerlink" title="（一）C++基础"></a>（一）C++基础</h3><h4 id="0、编程基础"><a href="#0、编程基础" class="headerlink" title="0、编程基础"></a>0、编程基础</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SECOND_PER_YEAR (365*24*3600)(UL)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MIN (A,B) ( (A) &lt;= (B) ? (A) : (B) )</span></span><br></pre></td></tr></table></figure>
 <p>构造函数不能声明为虚函数。全局变量存储在静态存储区，局部变量存储在栈区。</p>
+<p>1、在函数内定义一个字符数组，用gets函数输入字符串的时候，如果输入越界，为什么程序会崩溃？</p>
+<p>答：因为gets无法截断数组越界部分，会将所有输入都写入内存，这样越界部分就可能覆盖其他内容，造成程序崩溃。</p>
 <h4 id="1、static的作用"><a href="#1、static的作用" class="headerlink" title="1、static的作用"></a>1、static的作用</h4><ol>
 <li>隐藏：当我们同时编译多个文件时，所有未加static前缀的全局变量和函数都具有全局可见性。如果加了static，就会对其它源文件隐藏。static全局变量的作用域是定义的源文件，只被初始化一次</li>
 <li>static变量存储在静态存储区（全局变量也存储在静态变量区）。存储在静态数据区的变量会在程序刚开始运行时就完成初始化，也是唯一的一次初始化。</li>
@@ -208,7 +210,7 @@
 <li>运行时多态，用虚函数实现。根据具体对象调用具体的函数。在运行时才知道要调用的到底是哪个函数。</li>
 <li>在C++中，通过基类的引用（或指针调用）虚函数时，发生动态绑定。用引用（或指针）调用的虚函数在运行时确定，被调用的函数引用（或指针）所指对象的实际类型所定义的。</li>
 </ol>
-<h3 id="（三）内存管理、内存共享"><a href="#（三）内存管理、内存共享" class="headerlink" title="（三）内存管理、内存共享"></a>（三）内存管理、内存共享</h3><p>在C++中，内存分成5个区，他们分别是堆、栈、自由存储区、全局/静态存储区和常量存储区。<br>    栈，就是那些由编译器在需要的时候分配，在不需要的时候自动清除变量的存储区。里面的变量通常是局部变量、函数参数等。<br>    堆，就是那些由new分配的内存块，他们的释放编译器不去管，由我们的应用程序去控制，一般一个new就要对应一个delete。如果程序员没有释放掉，那么在程序结束后，操作系统会自动回收。<br>    自由存储区，就是那些由malloc等分配的内存块，他和堆是十分相似的，不过它是用free来结束自己的生命的。<br>    全局/静态存储区，全局变量和静态变量被分配到同一块内存中，在以前的C语言中，全局变量又分为初始化的和未初始化的，在C++里面没有这个区分了，他们共同占用同一块内存区。<br>    常量存储区，这是一块比较特殊的存储区，他们里面存放的是常量，不允许修改 </p>
+<h3 id="（三）内存管理、内存共享"><a href="#（三）内存管理、内存共享" class="headerlink" title="（三）内存管理、内存共享"></a>（三）内存管理、内存共享</h3><p>在C++中，内存分成5个区，他们分别是堆、栈、自由存储区、全局/静态存储区和常量存储区。<br>​    栈，就是那些由编译器在需要的时候分配，在不需要的时候自动清除变量的存储区。里面的变量通常是局部变量、函数参数等。<br>​    堆，就是那些由new分配的内存块，他们的释放编译器不去管，由我们的应用程序去控制，一般一个new就要对应一个delete。如果程序员没有释放掉，那么在程序结束后，操作系统会自动回收。<br>​    自由存储区，就是那些由malloc等分配的内存块，他和堆是十分相似的，不过它是用free来结束自己的生命的。<br>​    全局/静态存储区，全局变量和静态变量被分配到同一块内存中，在以前的C语言中，全局变量又分为初始化的和未初始化的，在C++里面没有这个区分了，他们共同占用同一块内存区。<br>​    常量存储区，这是一块比较特殊的存储区，他们里面存放的是常量，不允许修改 </p>
 <p>问内存管理的时候，可以回到new和malloc的区别</p>
 <table>
 <thead>
